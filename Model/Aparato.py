@@ -1,25 +1,30 @@
 from Database.Database import Database
-class Aparato():
-    def __init__(self):
-        idAparato = ""
-        equipo = ""
-        memoria = ""
-        almacenamiento = ""
-        problema = ""
-        diagnostico = ""
-        reparacion = ""
-        costo = ""
-        status = ""
+from bson.objectid import ObjectId
 
-    def recibir(self, cliente, almacenamiento, memoria, fecha, tel, problema):
-        Json = {"Cliente": cliente, "kd":"", "Estatus":"En diagnostoico"}
+class Aparato ():
+    def __init__ (self):
+        self.__id_equipo = ""
+        self.__equipo = ""
+        self.__memoria = ""
+        self.__almacemiento = ""
+        self.__problema = ""
+        self.__diagnostico = ""
+        self.__reparacion = ""
+        self.__costo = ""
+        self.__estatus = ""
+    def recibir (self, cliente, equipo, memoria, almacenamiento, problema, estatus):
+        json = {"Cliente" : cliente, "Equipo" : equipo, "Memoria" : memoria, "Alamacenamiento" : almacenamiento, "Problema" : problema, "Estatus" : "En diagnostico"}
         db = Database()
-        db.insertar(Json)
-
-
-    def cotizar(self, id):
-        pass 
+        db.insertar(json, "collection")
     
-    def entregar():
-        pass
-#dxxd
+    def cotizar (self, diagnostico, reparacion, costo , id, estatus):
+        json = {"_id": ObjectId(id)},{"$set":{"Diagnostico" : diagnostico, "Reparacion" : reparacion, "Costo" : costo, "Estatus" : "En reparacion"}}
+        db = Database()
+        db.insertar(json, "collection")
+    
+        
+    def entregar (self, id, status):
+        json = {"_id": ObjectId(id)},{"$set":{ "Estatus" : "Entregado"}}
+        db = Database()
+        db.insertar(json, "collection")
+
