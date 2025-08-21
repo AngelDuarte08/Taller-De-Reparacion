@@ -1,3 +1,4 @@
+from Database.Database import Database
 class Usuario():
     def __init__(self):
         idUser = ""
@@ -6,8 +7,12 @@ class Usuario():
         usuario = ""
         rol = ""
 
-    def login():
-        pass
+    def login(self, user, psswd):
+        documento = {"clave": user, "psswd": psswd}
+        db = Database()
+        resultaDB = db.buscar(documento, "Usuarios")
+        return resultaDB
+
     
     def agregar():
         pass
