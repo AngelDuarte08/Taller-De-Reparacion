@@ -13,18 +13,18 @@ class Aparato ():
         self.__costo = ""
         self.__estatus = ""
     def recibir (self, cliente, equipo, memoria, almacenamiento, problema, estatus):
-        json = {"Cliente" : cliente, "Equipo" : equipo, "Memoria" : memoria, "Alamacenamiento" : almacenamiento, "Problema" : problema, "Estatus" : "En diagnostico"}
+        json = {"Cliente" : cliente, "Equipo" : equipo, "Memoria" : memoria, "Alamacenamiento" : almacenamiento, "Problema" : problema, estatus : "En diagnostico"}
         db = Database()
-        db.insertar(json, "collection")
+        db.insertar(json, "Aparatos")
     
     def cotizar (self, diagnostico, reparacion, costo , id, estatus):
-        json = {"_id": ObjectId(id)},{"$set":{"Diagnostico" : diagnostico, "Reparacion" : reparacion, "Costo" : costo, "Estatus" : "En reparacion"}}
+        json = {"_id": ObjectId(id)},{"$set":{"Diagnostico" : diagnostico, "Reparacion" : reparacion, "Costo" : costo, estatus : "En reparacion"}}
         db = Database()
-        db.insertar(json, "collection")
+        db.insertar(json, "Aparatos")
     
         
-    def entregar (self, id, status):
-        json = {"_id": ObjectId(id)},{"$set":{ "Estatus" : "Entregado"}}
+    def entregar (self, id, estatus):
+        json = {"_id": ObjectId(id)},{"$set":{ estatus : "Entregado"}}
         db = Database()
-        db.insertar(json, "collection")
+        db.insertar(json, "Aparatos")
 
