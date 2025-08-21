@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Menu</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-      margin: 0;
-      padding: 0;
-    }
-    .Titulo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      color: whitesmoke;
-      background-color: black;
-      height: 80px;
-    }
-    .Fondo {
-      background: #fff;
-      max-width: 400px;
-      margin: 30px auto;
-      padding: 30px 40px 20px 40px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .Botones form {
-      margin-bottom: 15px;
-    }
-    .Botones button {
-      width: 100%;
-      padding: 10px;
-      background: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-   
-  </style>
-</head>
-<body>
-  <div class="Titulo">
-    <h1>Menu de Reparaciones EL DIEGOTECH</h1>
-  </div>
-  <div class="Fondo">
-    <div class="Botones">
-      <form action="{{url_for('aparato_bp.recepcion')}}" method="get">
-        <button type="submit">Recepcion</button>
-      </form>
-      <form action="{{url_for('aparato_bp.entrega')}}" method="get">
-        <button type="submit">Entrega</button>
-      </form>
-      <form action="{{url_for('aparato_bp.diagnostico')}}" method="get">
-        <button type="submit">Diagnostico</button>
-      </form>
-      <form action="{{url_for('estatus')}}" method="get">
-        <button type="submit">Estatus</button>
-      </form>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Menu</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f8f8f8;
+        margin: 0;
+        padding: 0;
+      }
+      .Titulo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        color: whitesmoke;
+        background-color: black;
+        height: 80px;
+      }
+      .Fondo {
+        background: #fff;
+        max-width: 400px;
+        margin: 30px auto;
+        padding: 30px 40px 20px 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .Botones form {
+        margin-bottom: 15px;
+      }
+      .Botones button {
+        width: 100%;
+        padding: 10px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Titulo">
+      <h1>Menu de Reparaciones EL DIEGOTECH</h1>
     </div>
-  </div>
-</body>
+    <div class="Fondo">
+      <div class="Botones">
+        <form action="{{url_for('aparato_bp.recepcion')}}" method="get">
+          <button type="submit">Recepcion</button>
+        </form>
+        <form action="{{url_for('aparato_bp.entrega')}}" method="get">
+          <button type="submit">Entrega</button>
+        </form>
+        <form action="{{url_for('aparato_bp.diagnostico')}}" method="get">
+          <button type="submit">Diagnostico</button>
+        </form>
+        <form action="{{url_for('aparato_bp.estatus')}}" method="get">
+          <button type="submit">Estatus</button>
+        </form>
+        <form action="{{url_for('usuario_bp.registrar')}}" method="get">
+          <button type="submit">Registrar usuario</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,71 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Estatus</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f8f8;
-            margin: 0;
-            padding: 0;
-        }
-        .Estatus {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(88, 64, 64, 0.08);
-            padding: 30px 40px 20px 40px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
-        th {
-            background: #000000;
-            color: #fff;
-        }
-        tr:nth-child(even) {
-            background: #f2f2f2;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background: #f8f8f8;
+        margin: 0;
+        padding: 0;
+      }
+      .Estatus {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(88, 64, 64, 0.08);
+        padding: 30px 40px 20px 40px;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background: #000000;
+        color: #fff;
+      }
+      tr:nth-child(even) {
+        background: #f2f2f2;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="Estatus">
-        <h1>Tabla para verificar el estatus de un Dispositivo</h1>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Estatus</th>
-                        <th>Usuario</th>
-                        <th>Problema</th>
-                        <th>Diagnóstico</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in estatus_list %}
-                    <tr>
-                        <td>{{ item.Status }}</td>
-                        <td>{{ item.Usuario }}</td>
-                        <td>{{ item.Problema }}</td>
-                        <td>{{ item.Diagnostico }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      <h1>Tabla para verificar el estatus de un Dispositivo</h1>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Estatus</th>
+              <th>Usuario</th>
+              <th>Problema</th>
+              <th>Diagnóstico</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in estatus_list %}
+            <tr>
+              <td>{{ item.Status }}</td>
+              <td>{{ item.Usuario }}</td>
+              <td>{{ item.Problema }}</td>
+              <td>{{ item.Diagnostico }}</td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</body>
+  </body>
 </html>
