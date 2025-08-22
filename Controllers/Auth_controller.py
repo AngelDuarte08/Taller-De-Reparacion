@@ -35,3 +35,6 @@ def login():
         return render_template("index.html", error=error)
 
 
+@auth_bp.route("/Menu")
+def menu():
+    return render_template("Menu.html")
