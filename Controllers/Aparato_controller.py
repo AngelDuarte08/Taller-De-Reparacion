@@ -76,3 +76,24 @@ def insertar_diagnostico():
         tipo = "success-mensaje"
         exito = "El diagnistico se guardo correctamente"
         return render_template("diagnostico.html", tipo=tipo, message=exito )
+    
+@aparato_bp.route("/insertar_entrega", methods=["POST"])
+def insertar_enterga():
+
+    telefono = request.form["tel"]
+    costo = request.form["Costo"]
+    fecha = request.form["Fecha"]
+
+    try: 
+        aparato = Aparato()
+        aparato.entregar(telefono, costo, fecha)
+
+    except:
+        tipo = "error-mensaje"
+        error = "No se puede regristrar la entega"
+        return render_template("entrega.html", tipo=tipo, message=error)
+    
+    finally:
+        tipo = "success-mensaje"
+        exito = "El registro de la entrega correcto, puede entregar el equipo"
+        return render_template("entrega.html", tipo=tipo, message=exito )

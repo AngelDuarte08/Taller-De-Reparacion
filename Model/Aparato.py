@@ -23,10 +23,17 @@ class Aparato ():
         db.insertar(json, "Aparatos")
     
         
-    def entregar (self, id, estatus):
-        json = {"_id": ObjectId(id)},{"$set":{ estatus : "Entregado"}}
+    def entregar (self, telefono, costo, fecha):
+        filtro = {"Telefono": telefono}
+        actualizacion = {
+            "$set": {
+                "Costo_total": costo,
+                "fecha": fecha,
+                "Estatus": "Entregado"
+            }
+        }
         db = Database()
-        db.insertar(json, "Aparatos")
+        db.actualizar(filtro, actualizacion, "Aparatos")
 
     def diagnostico(self, tel, cliente, descripcion, solucion, costo, fecha, tecnico):
         filtro = {"Cliente": cliente, "Telefono": tel}
@@ -36,7 +43,8 @@ class Aparato ():
                 "Solucion": solucion,
                 "Costo": costo,
                 "Fecha_diagnostico": fecha,
-                "Tecnico": tecnico
+                "Tecnico": tecnico,
+                "Estatus": "En reparacion"
             }
         }
         db = Database()
