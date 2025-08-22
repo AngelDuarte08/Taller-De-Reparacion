@@ -54,15 +54,24 @@
         cursor: pointer;
         margin-top: 29px;
       }
-      .error-message {
-      background: #ffdddd;
-      color: #b30000;
-      border: 1px solid #b30000;
-      border-radius: 4px;
-      padding: 8px;
-      margin-bottom: 15px;
-      text-align: center;
-    }
+      .error-mensaje {
+        background: #ffdddd;
+        color: #b30000;
+        border: 1px solid #b30000;
+        border-radius: 4px;
+        padding: 8px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      .success-mensaje {
+        background: #76c076;
+        color: #0d4b0d;
+        border: 1px solid #075e07;
+        border-radius: 4px;
+        padding: 8px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -73,7 +82,10 @@
       <form action="{{ url_for('usuario_bp.insertar_en_db') }}" method="POST">
         <div class="Formulario">
           {% if error %}
-          <div class="error-message">{{ error }}</div>
+          <div class="error-mensaje">{{ error no se pudo registrar el usuario }}</div>
+          {% endif %}
+          {% if success %}
+          <div class="success-mensaje">{{ El usuario ha sido registrado exitosamente }}</div>
           {% endif %}
           <label for="Nombre">Nombre</label>
           <input type="text" id="Nombre" name="Nombre" required />
@@ -81,8 +93,8 @@
           <label>Apellidos</label>
           <input type="text" id="Apellidos" name="Apellidos" />
 
-          <label for="Usuario">Usuario</label>
-          <input type="text" id="Usuario" name="Usuario" required />
+          <label for="nickname">Nickname</label>
+          <input type="text" id="nickname" name="nickname" required />
 
           <label for="Contrasena">Contraseña</label>
           <input type="password" id="Contrasena" name="Contrasena" required />
