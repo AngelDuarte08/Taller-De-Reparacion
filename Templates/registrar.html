@@ -60,7 +60,7 @@
       <h1>Registrar usuario</h1>
     </div>
     <div class="Fondo">
-      <form action="{{ url_for('usuario_bp.registrar') }}" method="post">
+      <form action="{{ url_for('usuario_bp.insertar_en_db') }}" method="POST">
         <div class="Formulario">
           {% if message %}
           <div class="{{ tipo }}">{{ message }}</div>
