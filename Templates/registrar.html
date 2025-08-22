@@ -60,64 +60,31 @@
       <h1>Registrar usuario</h1>
     </div>
     <div class="Fondo">
-      <form action="{{ url_for('usuario_bp.registrar') }}" method="post" >
+      <form action="{{ url_for('usuario_bp.registrar') }}" method="post">
         <div class="Formulario">
+          {% if message %}
+          <div class="{{ tipo }}">{{ message }}</div>
+          {% endif %}
           <label for="Nombre">Nombre</label>
           <input type="text" id="Nombre" name="Nombre" required />
-    <title>Usuarios</title>
-    <body>
-      <div>
-        <h1>Seccion para agregar nuevos "Usuarios"</h1>
-      </div>
-      <div>
-        {% if message %}
-        <div class="{{tipo}}">{{ message }}</div>
-        {% endif %}
-        <form action="{{ url_for('usuario_bp.insertar_en_db') }}" method="POST">
-          <label>Nombre</label>
-          <input type="text" id="Nombre" name="Nombre" />
-
-          <label for="Apellidos">Apellidos</label>
-          <input type="text" id="Apellidos" name="Apellidos" required />
-          <p></p>
 
           <label>Apellidos</label>
           <input type="text" id="Apellidos" name="Apellidos" />
 
-          <label for="Nickname">Nickname</label>
-          <input type="text" id="Nickname" name="Nickname" required />
-          <p></p>
-
-          <label>Usuario</label>
-          <input type="text" id="Usuario" name="Usuario" />
+          <label for="Usuario">Usuario</label>
+          <input type="text" id="Usuario" name="Usuario" required />
 
           <label for="Contrasena">Contraseña</label>
           <input type="password" id="Contrasena" name="Contrasena" required />
-          <p></p>
-
-          <label>Contrasena</label>
-          <input type="password" id="Contrasena" name="Contrasena" />
 
           <label for="Rol">Rol</label>
           <input type="text" id="Rol" name="Rol" required />
         </div>
         <button class="Boton" type="submit">Registrar</button>
       </form>
+      <form action="{{ url_for('auth_bp.menu') }}" method="get">
+        <button class="Boton" type="submit">Continuar</button>
+      </form>
     </div>
   </body>
-          <p></p>
-
-          <label>Rol</label>
-          <input type="text" id="Rol" name="Rol" />
-
-          <p></p>
-
-          <input type="submit" value="Subir" />
-        </form>
-        <form action="{{ url_for('auth_bp.menu') }}" method="get">
-          <input type="submit" value="continuar" />
-        </form>
-      </div>
-    </body>
-  </head>
 </html>
