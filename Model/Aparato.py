@@ -12,8 +12,8 @@ class Aparato ():
         self.__reparacion = ""
         self.__costo = ""
         self.__estatus = ""
-    def recibir (self, cliente, equipo, memoria, almacenamiento, problema, estatus):
-        json = {"Cliente" : cliente, "Equipo" : equipo, "Memoria" : memoria, "Alamacenamiento" : almacenamiento, "Problema" : problema, estatus : "En diagnostico"}
+    def recibir (self, cliente, tel , equipo, memoria, almacenamiento, problema, fecha):
+        json = {"Cliente" : cliente, "Telefono":tel, "Equipo" : equipo, "Memoria" : memoria, "Alamacenamiento" : almacenamiento, "Problema" : problema, "Fecha_recibido ": fecha ,"Estatus" : "En diagnostico"}
         db = Database()
         db.insertar(json, "Aparatos")
     

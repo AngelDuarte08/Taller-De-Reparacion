@@ -33,3 +33,4 @@ def insertar_en_db():
         tipo = "success-mensaje"
         exito = "El usuario se registro con exito"
         return render_template("registrar.html", tipo=tipo ,message= exito)
+    

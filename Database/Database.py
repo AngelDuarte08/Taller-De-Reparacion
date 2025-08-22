@@ -3,7 +3,7 @@ from pymongo import MongoClient, errors
 
 class Database():
     def __init__(self):
-        self.__uri = "mongodb://31.97.102.106:27017"
+        self.__uri = "mongodb://SML:200235SML@31.97.102.106:27017/DiegoTech"
         try:
             self.__cliente = MongoClient(self.__uri, serverSelectionTimeoutMS=5000)
             # Probar conexión
