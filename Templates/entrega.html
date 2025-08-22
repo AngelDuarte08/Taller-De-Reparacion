@@ -53,6 +53,7 @@
         border-radius: 4px;
         font-size: 16px;
         cursor: pointer;
+        margin:5px;
       }
     </style>
   </head>
@@ -76,6 +77,9 @@
             <input type="date" id="Fecha" name="Fecha" required />
         </div>
         <button class="Boton" type="submit">Entregar</button>
+      </form>
+      <form action="{{ url_for('auth_bp.menu') }}" method="get">
+        <button class="Boton" type="submit">Continuar</button>
       </form>
     </div>
   </body>

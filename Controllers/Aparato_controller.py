@@ -51,3 +51,28 @@ def insertar_recepcion():
         tipo = "success-mensaje"
         exito = "El equipo se registro de manera correcta puede seguir"
         return render_template("recepcion.html", tipo=tipo ,message= exito)
+
+@aparato_bp.route("/Insertar_diagnostico", methods=["POST"])
+def insertar_diagnostico():
+
+    telefono = request.form["tel"]
+    cliente = request.form["cliente"]
+    descripcion = request.form["descripcion"]
+    solucion = request.form["solucion"]
+    costo = request.form["costo"]
+    fecha = request.form["fecha"]
+    tecnico = request.form["usuario"]
+
+    try: 
+        aparato = Aparato()
+        aparato.diagnostico(telefono, cliente, descripcion, solucion, costo, fecha, tecnico)
+    
+    except:
+        tipo = "error-mensaje"
+        error = "El diagnostico no se puede registar"
+        return render_template("diagnostico.html", tipo=tipo, message=error)
+    
+    finally:
+        tipo = "success-mensaje"
+        exito = "El diagnistico se guardo correctamente"
+        return render_template("diagnostico.html", tipo=tipo, message=exito )

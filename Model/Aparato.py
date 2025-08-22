@@ -28,3 +28,17 @@ class Aparato ():
         db = Database()
         db.insertar(json, "Aparatos")
 
+    def diagnostico(self, tel, cliente, descripcion, solucion, costo, fecha, tecnico):
+        filtro = {"Cliente": cliente, "Telefono": tel}
+        actualizacion = {
+            "$set": {
+                "Descripcion": descripcion,
+                "Solucion": solucion,
+                "Costo": costo,
+                "Fecha_diagnostico": fecha,
+                "Tecnico": tecnico
+            }
+        }
+        db = Database()
+        db.actualizar(filtro, actualizacion, "Aparatos")
+

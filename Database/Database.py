@@ -31,7 +31,8 @@ class Database():
             print("no se encontró ningún documento")
             return None
 
-    def actualizar(self, docuemto, collection):
+    def actualizar(self, filtro, actualizacion, collection):
         self.__collection = self.__db[collection]
-        self.__collection.update_one(docuemto)
-        print("Los datos se atualizaron correctamente")
+        resultado = self.__collection.update_one(filtro, actualizacion)
+        print("Los datos se actualizaron correctamente")
+        print("Matched:", resultado.matched_count, "Modified:", resultado.modified_count)
