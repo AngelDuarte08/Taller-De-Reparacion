@@ -2,6 +2,68 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <title>Registrar Usuario</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f8f8f8;
+        margin: 0;
+        padding: 0;
+      }
+      .Titulo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        color: whitesmoke;
+        background-color: black;
+        height: 80px;
+      }
+      .Fondo {
+        background: #fff;
+        max-width: 400px;
+        margin: 30px auto;
+        padding: 30px 40px 20px 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .Formulario {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input[type="text"],
+      input[type="password"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 15px;
+      }
+      .Boton {
+        width: 100%;
+        padding: 10px;
+        background: #000000;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Titulo">
+      <h1>Registrar usuario</h1>
+    </div>
+    <div class="Fondo">
+      <form action="{{ url_for('usuario_bp.registrar') }}" method="post" >
+        <div class="Formulario">
+          <label for="Nombre">Nombre</label>
+          <input type="text" id="Nombre" name="Nombre" required />
     <title>Usuarios</title>
     <body>
       <div>
@@ -15,21 +77,34 @@
           <label>Nombre</label>
           <input type="text" id="Nombre" name="Nombre" />
 
+          <label for="Apellidos">Apellidos</label>
+          <input type="text" id="Apellidos" name="Apellidos" required />
           <p></p>
 
           <label>Apellidos</label>
           <input type="text" id="Apellidos" name="Apellidos" />
 
+          <label for="Nickname">Nickname</label>
+          <input type="text" id="Nickname" name="Nickname" required />
           <p></p>
 
           <label>Usuario</label>
           <input type="text" id="Usuario" name="Usuario" />
 
+          <label for="Contrasena">Contraseña</label>
+          <input type="password" id="Contrasena" name="Contrasena" required />
           <p></p>
 
           <label>Contrasena</label>
           <input type="password" id="Contrasena" name="Contrasena" />
 
+          <label for="Rol">Rol</label>
+          <input type="text" id="Rol" name="Rol" required />
+        </div>
+        <button class="Boton" type="submit">Registrar</button>
+      </form>
+    </div>
+  </body>
           <p></p>
 
           <label>Rol</label>

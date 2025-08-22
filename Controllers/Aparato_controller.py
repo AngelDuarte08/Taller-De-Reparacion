@@ -9,7 +9,7 @@ def recepcion():
 
 @aparato_bp.route("/Diagnostico")
 def diagnostico():
-    return render_template("")
+    return render_template("diagnostico.html")
 
 
 @aparato_bp.route("/Entrega")
