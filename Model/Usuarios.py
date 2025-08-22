@@ -10,7 +10,7 @@ class Usuario():
         self.__rol = ""
 
     def login(self, user, psswd):
-        documento = {"clave": user, "psswd": psswd}
+        documento = {"Usuario": user, "Contrasena": psswd}
         resultaDB = self.__db.buscar(documento, self.__collection)
         return resultaDB
 

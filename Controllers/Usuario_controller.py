@@ -25,11 +25,11 @@ def insertar_en_db():
                         psswd,
                         rol)
     except:
-        tipo = "error-message"
+        tipo = "error-mensaje"
         error = "No se puedo registar el usuario"
         return render_template("registrar.html", tipo=tipo, message= error)        
     
     finally:
-        tipo = "exito-message"
+        tipo = "success-mensaje"
         exito = "El usuario se registro con exito"
-        return render_template("registrar.html", menssage= exito)
+        return render_template("registrar.html", tipo=tipo ,message= exito)
