@@ -11,7 +11,7 @@ class Usuario():
 
     def login(self, user, psswd):
         documento = {"Usuario": user, "Contrasena": psswd}
-        resultaDB = self.__db.buscar(documento, self.__collection)
+        resultaDB = self.__db.buscar(self.__collection, documento, uno=True)
         return resultaDB
 
     
