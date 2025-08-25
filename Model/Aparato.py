@@ -13,14 +13,13 @@ class Aparato ():
         self.__costo = ""
         self.__estatus = ""
     def recibir (self, cliente, tel , equipo, memoria, almacenamiento, problema, fecha):
-        json = {"Cliente" : cliente, "Telefono":tel, "Equipo" : equipo, "Memoria" : memoria, "Alamacenamiento" : almacenamiento, "Problema" : problema, "Fecha_recibido ": fecha ,"Estatus" : "En diagnostico"}
+        json = {"Cliente" : cliente, "Telefono":tel, "Equipo" : equipo, "Memoria" : memoria, "Alamacenamiento" : almacenamiento, "Problema" : problema, "Fecha_recibido": fecha ,"Estatus" : "En diagnostico"}
         db = Database()
         db.insertar(json, "Aparatos")
     
-    def cotizar (self, diagnostico, reparacion, costo , id, estatus):
-        json = {"_id": ObjectId(id)},{"$set":{"Diagnostico" : diagnostico, "Reparacion" : reparacion, "Costo" : costo, estatus : "En reparacion"}}
+    def consultar(self, filtro=None):
         db = Database()
-        db.insertar(json, "Aparatos")
+        return db.buscar("Aparatos", filtro, uno=False)
     
         
     def entregar (self, telefono, costo, fecha):

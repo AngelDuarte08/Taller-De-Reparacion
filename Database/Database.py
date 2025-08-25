@@ -21,15 +21,31 @@ class Database():
         resultado = self.__collection.insert_one(documento)
         print("Se realizo con exito la insercion de datos")
         
-    def buscar(self, documento, collection):
+    def buscar(self, collection, filtro=None, uno=False):
         self.__collection = self.__db[collection]
-        resultado = self.__collection.find_one(documento)
-        if resultado:
-            print("consulta exitosa")
-            return resultado
+
+        if filtro is None:
+            filtro = {}
+
+        if uno:
+            # Devuelve solo un documento
+            resultado = self.__collection.find_one(filtro)
+            if resultado:
+                print("Consulta exitosa (un documento)")
+                return resultado
+            else:
+                print("No se encontró ningún documento")
+                return None
         else:
-            print("no se encontró ningún documento")
-            return None
+            # Devuelve todos los documentos como lista
+            resultados = list(self.__collection.find(filtro))
+            if resultados:
+                print("Consulta exitosa (varios documentos)")
+                return resultados
+            else:
+                print("No se encontraron documentos")
+                return []
+
 
     def actualizar(self, filtro, actualizacion, collection):
         self.__collection = self.__db[collection]

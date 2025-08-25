@@ -20,7 +20,12 @@ def entrega():
 
 @aparato_bp.route("/Estatus")
 def estatus():
-    return render_template("estatus.html")
+    try:
+        aparato = Aparato()
+        resultadoDB = aparato.consultar()
+        return render_template("estatus.html", estatus_list= resultadoDB)
+    except:
+        pass
 
 @aparato_bp.route("/Insertar_recepcion", methods=["POST"])
 def insertar_recepcion():
@@ -97,3 +102,23 @@ def insertar_enterga():
         tipo = "success-mensaje"
         exito = "El registro de la entrega correcto, puede entregar el equipo"
         return render_template("entrega.html", tipo=tipo, message=exito )
+    
+@aparato_bp.route("/Buscar_estatus" , methods=["POST"])
+def buscar_estatus():
+
+    tel = request.form["tel"]
+    filtro = {"Telefono": tel}
+
+    if not tel:
+        return redirect(url_for("aparato_bp.estatus"))
+    else: 
+        try: 
+            aparato = Aparato()
+            resultadoDB = aparato.consultar(filtro)
+
+            return render_template("estatus.html", estatus_list= resultadoDB)            
+
+        except:
+            tipo = "error-mensaje"
+            error = "Cliente no encontrado"
+            return render_template("estatus.html", tipo=tipo, message= error)
